@@ -82,7 +82,6 @@ public class UserDao {
 		User user = null;
 		while(rs.next()) {
 			user = new User();
-			user.setUserNo(rs.getInt("user_no"));
 			user.setEmail(rs.getString("email"));
 			user.setBirthday(rs.getDate("birthday"));
 			user.setJoinDate(rs.getDate("join_date"));
@@ -113,7 +112,6 @@ public class UserDao {
 		User user = null;
 		while(rs.next()) {
 			user = new User();
-			user.setUserNo(rs.getInt("user_no"));
 			user.setEmail(rs.getString("email"));
 			user.setBirthday(rs.getDate("birthday"));
 			user.setJoinDate(rs.getDate("join_date"));

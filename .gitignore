@@ -42,5 +42,6 @@ Thumbs.db
 #db property
 jdbc.properties
 
-#security Å¬·¡½º
+#security
 Security.java
+DBInfo.java

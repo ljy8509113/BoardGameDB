@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.database.common.DBInfo;
+
 public class DBUtil {
 	// 싱글턴 패턴 만들기
 	
@@ -36,30 +38,13 @@ public class DBUtil {
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		
 		try{
-			String path = DBUtil.class.getResource("").getPath(); 
-			path = path.replace("!", "");
-            // 프로퍼티 파일 위치
-			String propFile = path+"jdbc.properties";
-			System.out.println(propFile);
-			
-            // 프로퍼티 객체 생성
-            Properties props = new Properties();
-            // 프로퍼티 파일 스트림에 담기
-            FileInputStream fis = new FileInputStream(propFile);
-            // 프로퍼티 파일 로딩
-            props.load(new java.io.BufferedInputStream(fis));
-             
-            // 항목 읽기
-            String url = props.getProperty("url") ;
-            String id = props.getProperty("username");
-            String password = props.getProperty("password");
-            String dbName = props.getProperty("dbname");
-            
-    		// 1. 드라이버 로드
+			// 1. 드라이버 로드
     		Class.forName("com.mysql.jdbc.Driver");
     		
     		// 2. 데이터베이스 연결
-    		Connection conn = DriverManager.getConnection(url+"/"+dbName, id, password);
+    		Connection conn = DriverManager.getConnection(DBInfo.DB_PATH, 
+    				DBInfo.USER_NAME,
+    				DBInfo.PASSWORD );
     		
     		return conn;
              

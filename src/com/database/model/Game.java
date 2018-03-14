@@ -2,16 +2,17 @@ package com.database.model;
 
 import java.io.Serializable;
 
+//게임정보
 public class Game implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private Integer gameNo;
-	private String description;
-	private String title;
-	private String coverImage;
-	private String state;
-	private String fileName;
-	private String version;
+	private Integer gameNo;			//게임 primary key
+	private String description;		//게임 설명
+	private String title;			//게임 제목
+	private String coverImage;		//게임 대표 이미지
+	private String state;			//게임 상태 D:개발중, O:서비스중, F:서비스종료
+	private String fileName;		//프리팹경로(사용미정)
+	private String version;			//게임버전
 	
 	public Game() {		
 	}

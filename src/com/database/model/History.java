@@ -2,37 +2,35 @@ package com.database.model;
 
 import java.io.Serializable;
 
+//전적
 public class History implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
-	private int userNo;
-	private int total;
-	private int win;
-	private int lose;
-	private int stop;
-	private float winningRate;
-	private int gameNo;
+	
+	private String email;		//사용자 email
+	private int total;			//총 게임수
+	private int win;			//승리 수
+	private int lose;			//패배 수
+	private int disconnect;		//경기중 연결이 끊겨서 참여하지 못한 횟수
+	private int gameNo;			//게임 no
 	
 	public History() {		
 	}
 	
-	public History(int userNo, int total, int win, int lose, int stop, float winningRate, int gameNo) {
-		super();
-		this.userNo = userNo;
+	public History(String email, int total, int win, int lose, int disconnect, int gameNo) {
+		this.email = email;
 		this.total = total;
 		this.win = win;
 		this.lose = lose;
-		this.stop = stop;
-		this.winningRate = winningRate;
+		this.disconnect = disconnect;
 		this.gameNo = gameNo;
 	}
 
-	public int getuserNo() {
-		return userNo;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setuserNo(int userNo) {
-		this.userNo = userNo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getTotal() {
@@ -59,73 +57,35 @@ public class History implements Serializable {
 		this.lose = lose;
 	}
 
-	public int getStop() {
-		return stop;
+	public int getDisconnect() {
+		return disconnect;
 	}
 
-	public void setStop(int stop) {
-		this.stop = stop;
+	public void setDisconnect(int disconnect) {
+		this.disconnect = disconnect;
 	}
 
-	public float getwinningRate() {
-		return winningRate;
-	}
-
-	public void setwinningRate(float winningRate) {
-		this.winningRate = winningRate;
-	}
-
-	public int getgameNo() {
+	public int getGameNo() {
 		return gameNo;
 	}
 
-	public void setgameNo(int gameNo) {
+	public void setGameNo(int gameNo) {
 		this.gameNo = gameNo;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + gameNo;
-		result = prime * result + lose;
-		result = prime * result + stop;
-		result = prime * result + total;
-		result = prime * result + userNo;
-		result = prime * result + win;
-		result = prime * result + Float.floatToIntBits(winningRate);
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		History other = (History) obj;
-		if(other.gameNo == this.gameNo && other.userNo == this.userNo)
-			return true;
-		return true;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("History [userNo=");
-		builder.append(userNo);
+		builder.append("History [email=");
+		builder.append(email);
 		builder.append(", total=");
 		builder.append(total);
 		builder.append(", win=");
 		builder.append(win);
 		builder.append(", lose=");
 		builder.append(lose);
-		builder.append(", stop=");
-		builder.append(stop);
-		builder.append(", winningRate=");
-		builder.append(winningRate);
+		builder.append(", disconnect=");
+		builder.append(disconnect);
 		builder.append(", gameNo=");
 		builder.append(gameNo);
 		builder.append("]");
