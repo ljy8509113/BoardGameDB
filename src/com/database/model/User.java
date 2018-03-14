@@ -2,7 +2,6 @@ package com.database.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
 
 public class User implements Serializable {
 	
@@ -14,7 +13,7 @@ public class User implements Serializable {
 	private Date birthday;		//생일 - 추후 연령대별 통계 쓸일 있으면 사용
 	private Date joinDate;		//가입일
 	private Integer failCount;	//로그인 실패 횟수
-	private Set<Authority> authorities;	// 해당 사용자의 권한 목록
+//	private Set<Authority> authorities;	// 해당 사용자의 권한 목록
 	
 	public User() {		
 	}
@@ -92,13 +91,13 @@ public class User implements Serializable {
 		this.failCount = failCount;
 	}
 	
-	public Set<Authority> getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(Set<Authority> authorities) {
-		this.authorities = authorities;
-	}
+//	public Set<Authority> getAuthorities() {
+//		return authorities;
+//	}
+//
+//	public void setAuthorities(Set<Authority> authorities) {
+//		this.authorities = authorities;
+//	}
 
 	@Override
 	public int hashCode() {
@@ -111,7 +110,7 @@ public class User implements Serializable {
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + userNo;
 		result = prime * result + failCount;
-		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
+//		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
 		return result;
 	}
 
@@ -146,8 +145,8 @@ public class User implements Serializable {
 		builder.append(joinDate);
 		builder.append(", failCount=");
 		builder.append(failCount);
-		builder.append(", authorities=");
-		builder.append(authorities);
+//		builder.append(", authorities=");
+//		builder.append(authorities);
 		builder.append("]");
 		return builder.toString();
 	}
