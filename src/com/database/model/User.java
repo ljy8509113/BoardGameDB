@@ -2,6 +2,7 @@ package com.database.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 
 //사용자
 public class User implements Serializable {

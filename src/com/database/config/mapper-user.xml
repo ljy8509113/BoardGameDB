@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.database.model.User">
+  	<!-- 
+  	<resultMap type="User" id="UserResultMap">
+  		<result property="email" column="email"/>
+  		<result property="password" column="password"/>
+  		<result property="nickname" column="nickname"/>
+  		<result property="birthday" column="birthday"/>
+  		<result property="failCount" column="fail_count"/>
+  		<result property="joinDate" column="join_date"/>
+  	</resultMap>
+  	 -->
+  	 <!-- 
+  	<select id="select-user" parameterType="String" resultMap="UserResultMap">
+  		
+  	</select>
+  	 -->
+  	 
+  	 
+  	<select id="select-user" parameterType="String" resultType="User">
+  		SELECT * FROM user WHERE email = #{email}
+  	</select>
+  	
+  	<select id="select-email" parameterType="String" resultType="int">
+  		SELECT COUNT(*) FROM user WHERE email = #{email}
+  	</select>
+  	
+  	<select id="select-nickName" parameterType="String" resultType="int">
+  		SELECT COUNT(*) FROM user where nickname = #{nickName}
+  	</select>
+  	
+  	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="email">
+  		INSERT INTO user (email, password, nickname, birthday, join_date) VALUES (#{email}, #{password}, #{nickname}, #{birthday}, CURDATE())
+  	</insert>
+  	
+  	<update id="update-fail-count" parameterType="String">
+  		UPDATE user SET fail_count=#{0} WHERE email=#{1} 
+  	</update>
+  	
+  	<select id="count-users" resultType="int">
+  		SELECT COUNT(*) FROM user
+  	</select>
+  	
+  	<delete id="delete-all-users-authority">
+  		DELETE FROM users_authority
+  	</delete>
+  	
+  	<select id="select-last-insert-id" resultType="int">
+  		SELECT LAST_INSERT_ID()
+  	</select>
+  	
+  </mapper>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
