@@ -14,6 +14,7 @@ import javax.crypto.NoSuchPaddingException;
 import com.database.controller.DBController;
 import com.database.model.User;
 import com.database.util.CustomException;
+import com.security.Security;
 
 public class Test {
 	public static void main(String[] args) {
@@ -21,8 +22,8 @@ public class Test {
 			User user = DBController.Instance().selectUser("test@gmail.com");
 			System.out.println("user : " + user.getEmail());
 			
-			User user1 = new User("test1@gmail.com", "1234", "test1", new Date());
-			DBController.Instance().join(user1);
+			//User user1 = new User("test1@gmail.com", "1234", "test1", new Date());
+			DBController.Instance().login("test1@gmail.com", Security.Instance().cryption("1234", true));
 		} catch (ClassNotFoundException | SQLException | CustomException e) {
 			e.printStackTrace();
 		} 

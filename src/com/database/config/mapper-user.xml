@@ -37,8 +37,8 @@
   		INSERT INTO user (email, password, nickname, birthday, join_date) VALUES (#{email}, #{password}, #{nickname}, #{birthday}, CURDATE())
   	</insert>
   	
-  	<update id="update-fail-count" parameterType="String">
-  		UPDATE user SET fail_count=#{0} WHERE email=#{1} 
+  	<update id="update-fail-count" parameterType="java.util.HashMap">
+  		UPDATE user SET fail_count = #{count} WHERE email = #{email} 
   	</update>
   	
   	<select id="count-users" resultType="int">

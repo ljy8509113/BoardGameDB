@@ -5,6 +5,8 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -70,15 +72,19 @@ public class UserDao {
 		}else if(user.getFailCount() >= 10) {
 			throw new CustomException(ResCode.ERROR_PASSWORD_FAIL_FULL.getResCode(), ResCode.ERROR_PASSWORD_FAIL_FULL.getMessage());
 		}else {
+			Map<String, String> map = new HashMap<String, String>();
 			if(password.equals(Security.Instance().deCryption(user.getPassword(), true))) {
-				session.update(MAPPER_NS + ".update-fail-count", new String[]{"0", user.getEmail()});
+				map.put("count", "0");
+				map.put("email", user.getEmail());
+				session.update(MAPPER_NS + ".update-fail-count", map);
 				
 				String pw = Security.Instance().deCryption(user.getPassword(), true);
 				user.setPassword(Security.Instance().cryption(pw, false));
 				return user;
 			}else {
-				String count = user.getFailCount()+1+"";
-				session.update(MAPPER_NS + ".update-fail-count", new String[] {count, user.getEmail()});
+				map.put("count", user.getFailCount()+1+"");
+				map.put("email", user.getEmail());
+				session.update(MAPPER_NS + ".update-fail-count", map);
 				throw new CustomException(ResCode.ERROR_PASSWORD_MISS.getResCode(), ResCode.ERROR_PASSWORD_MISS.getMessage());
 			}
 		}
