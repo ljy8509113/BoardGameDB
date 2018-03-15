@@ -45,3 +45,6 @@ jdbc.properties
 #security
 Security.java
 DBInfo.java
+
+#jar
+BoardGameDB.jar
