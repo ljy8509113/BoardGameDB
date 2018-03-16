@@ -10,7 +10,6 @@ public class CustomException extends Exception {
 		super(message);
 		this.resCode = resCode;
 		this.message = message;
-		
 	}
 
 	public int getResCode() {
