@@ -1,25 +1,13 @@
 package com.database.dao;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-import org.springframework.stereotype.Repository;
-
 import com.database.model.Admin;
 import com.database.util.AdminException;
 
-public class AdminDao {
+public class AdminDao extends BaseDao {
 	
 	private final String MAPPER_NS = Admin.class.getName();
-	private ApplicationContext context;
-	
-	
-	private SqlSession session;
 	
 	public AdminDao() {
-		context = new GenericXmlApplicationContext("/com/database/config/applicationContext.xml");
-		session =  context.getBean(SqlSession.class);
 	}
 	
 	// 관리자 찾기

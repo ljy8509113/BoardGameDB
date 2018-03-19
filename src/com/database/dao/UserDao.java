@@ -12,24 +12,16 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-
 import com.database.common.ResCode;
 import com.database.model.User;
 import com.database.util.CustomException;
 import com.security.Security;
 
-public class UserDao {
+public class UserDao extends BaseDao{
 	
-	private ApplicationContext context;
-	private SqlSession session;
 	final String MAPPER_NS = User.class.getName();
 	
 	public UserDao() {
-		context = new GenericXmlApplicationContext("/com/database/config/applicationContext.xml");		
-		session = context.getBean(SqlSession.class);
 	}
 	
 	public void insert(User user) throws CustomException, ClassNotFoundException, SQLException, InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {

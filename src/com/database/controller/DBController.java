@@ -10,7 +10,9 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import com.database.dao.ScoreDao;
 import com.database.dao.UserDao;
+import com.database.model.Score;
 import com.database.model.User;
 import com.database.util.CustomException;
 
@@ -27,7 +29,8 @@ public class DBController {
 	}
 
 	UserDao userDao = null;
-
+	ScoreDao scoreDao = null;
+	
 	public User login(String email, String password) throws InvalidKeyException, ClassNotFoundException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, CustomException, SQLException{
 		return userDao.selectUser(email, password);
 	}
@@ -52,4 +55,7 @@ public class DBController {
 
 
 	//---정욱--------------------------------------//
+	public Score selectScore(String email, int gameNo) throws CustomException {
+		return scoreDao.select(email, gameNo);
+	}
 }

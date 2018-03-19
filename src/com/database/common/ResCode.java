@@ -11,13 +11,25 @@ public enum ResCode {
 	ERROR_PASSWORD_MISS(Common.CODE_ERROR_PASSWORD_MISS),
 	ERROR_PASSWORD_FAIL_FULL(Common.CODE_ERROR_PASSWORD_FAIL_FULL),
 	ERROR_NICKNAME_OVERLAP(Common.CODE_ERROR_NICKNAME_OVERLAP);
+
+	//---여정--------------------------------------//
+
+
+
+	//---성은--------------------------------------//
+
+
+
+	//---정욱--------------------------------------//
+	
+	
 	
 	int resCode;
 	String message;
-	
+
 	ResCode(int resCode){
 		this.resCode = resCode;
-		
+
 		switch(resCode) {
 		case Common.CODE_SUCCESS:
 			message = "성공";
@@ -49,11 +61,11 @@ public enum ResCode {
 			break;
 		}
 	}
-	
+
 	public int getResCode() {
 		return resCode;
 	}
-	
+
 	public String getMessage() {
 		return message;
 	}
