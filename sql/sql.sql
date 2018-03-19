@@ -58,3 +58,19 @@ create table boardgame.device(
     foreign key(email) references boardgame.user(email)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+# 사용자 권한 정의한 테이블 
+CREATE TABLE boardgame.authority(
+	id		INT 			NOT NULL	PRIMARY KEY,
+	name	VARCHAR(30)		NOT NULL
+) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+# 사용자 번호와 사용자 권한 아이디값을 연결하는 테이블
+CREATE TABLE boardgame.admin_authority(
+	admin_id		varchar(100) 	NOT NULL,
+	authority_id	INT		NOT NULL,
+	FOREIGN KEY (admin_id) REFERENCES boardgame.admin (id),
+	FOREIGN KEY (authority_id) REFERENCES boardgame.authority (id)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+select * from boardgame.user;
+
