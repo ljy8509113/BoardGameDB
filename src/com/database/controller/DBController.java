@@ -76,6 +76,7 @@ public class DBController {
 		return gameDao.selectAll();
 	}
 
+	
 
 	//---정욱--------------------------------------//
 	public Score selectScore(String email, int gameNo) throws CustomException {
