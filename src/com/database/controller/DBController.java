@@ -5,13 +5,16 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import com.database.dao.GameDao;
 import com.database.dao.ScoreDao;
 import com.database.dao.UserDao;
+import com.database.model.Game;
 import com.database.model.Score;
 import com.database.model.User;
 import com.database.util.CustomException;
@@ -30,6 +33,7 @@ public class DBController {
 
 	UserDao userDao = null;
 	ScoreDao scoreDao = null;
+	GameDao gameDao = null;
 	
 	public User login(String email, String password) throws InvalidKeyException, ClassNotFoundException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, CustomException, SQLException{
 		return userDao.selectUser(email, password);
@@ -51,7 +55,9 @@ public class DBController {
 
 
 	//---성은--------------------------------------//
-
+	public List<Game> selectAllGame(String game_no) {
+		return gameDao.selectAll();
+	}
 
 
 	//---정욱--------------------------------------//
