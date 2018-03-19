@@ -21,7 +21,9 @@ public enum ResCode {
 
 
 	//---정욱--------------------------------------//
-
+	
+	
+	
 	int resCode;
 	String message;
 
