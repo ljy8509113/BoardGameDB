@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.database.model.Game;
 
-@Repository
 public class GameDao extends BaseDao {
 	final String MAPPER_NS = Game.class.getName();
 	
