@@ -4,26 +4,44 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.database.model.Admin">
-  	<!-- 
-  	<resultMap type="User" id="UserResultMap">
-  		<result property="email" column="email"/>
-  		<result property="password" column="password"/>
-  		<result property="nickname" column="nickname"/>
-  		<result property="birthday" column="birthday"/>
-  		<result property="failCount" column="fail_count"/>
-  		<result property="joinDate" column="join_date"/>
-  	</resultMap>
-  	 -->
-  	 <!-- 
-  	<select id="select-user" parameterType="String" resultMap="UserResultMap">
-  		
-  	</select>
-  	 -->
-  	 
-  	 
-  	<select id="select-admin" parameterType="String" resultType="Admin">
+  	
+ 
+  	<!-- <select id="select-admin" parameterType="String" resultType="Admin">
   		SELECT * FROM boardgame.admin WHERE id = #{id}
-  	</select>
+  	</select> -->
+  	
+  	<resultMap type="Admin" id="AdminResultMap">
+ 		<id property="id" column="id" />
+ 		<result property="password" column="password" />
+ 		<result property="nickname" column="nickname" />
+ 		<result property="failCount" column="fail_count" />
+ 		
+ 		<collection property="authorities" ofType="Authority">
+ 			<id property="id" column="aid" />
+ 			<result property="name" column="name" />
+ 		</collection>
+ 		
+ 	</resultMap>
+ 	
+ 	<select id="select-admin" parameterType="String" resultMap="AdminResultMap">
+ 		SELECT a.id, a.password, a.nickname, a.fail_count, au.id as "aid", au.name
+		FROM boardgame.admin a, 
+			(SELECT boardgame.admin_authority.admin_id, 
+					boardgame.authority.id, boardgame.authority.name
+			FROM boardgame.admin_authority, boardgame.authority
+			WHERE boardgame.admin_authority.authority_id = authority.id) au
+		WHERE a.id = au.admin_id AND a.id = #{id}
+ 	</select>
+  	
+  	<!-- 한 사용자가 여러 권한을 가질 수 있기 때문에 반복문 사용한다 -->
+ 	<insert id="insert-authority" parameterType="Admin">
+ 		INSERT INTO boardgame.admin_authority(admin_id, authority_id) VALUES
+ 		<foreach collection="authorities" item="item" separator=", ">
+ 			(#{id}, #{item.id})
+ 		</foreach>
+ 	</insert>
+  	
+  	
   	
   	<!-- <select id="select-id" parameterType="String" resultType="int">
   		SELECT COUNT(*) FROM boardgame.admin WHERE id = #{id}

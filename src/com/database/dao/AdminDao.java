@@ -1,7 +1,6 @@
 package com.database.dao;
 
 import com.database.model.Admin;
-import com.database.util.AdminException;
 
 public class AdminDao extends BaseDao {
 	
@@ -10,21 +9,21 @@ public class AdminDao extends BaseDao {
 	public AdminDao() {
 	}
 	
-	// 관리자 찾기
-	public Admin selectAdmin(String id) throws AdminException {
+	// 관리자 찾기, 권한 가져오기
+	public Admin selectAdmin(String id){
 		Admin admin = null;
 		
-		try {
-			admin = session.selectOne(MAPPER_NS + ".select-admin", id);
-		} catch (Exception e) {
-			throw new AdminException(e.getMessage());
-		}
-		
+		admin = session.selectOne(MAPPER_NS + ".select-admin", id);
+
 		return admin;
 	}
 	
+	// 관리자에 권한 부여
+	public void insertAuthority(Admin admin) {
+		session.insert(MAPPER_NS + "insert-authority", admin); 
+	}
 	
-	
+
 	
 	
 	
