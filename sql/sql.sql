@@ -73,12 +73,17 @@ CREATE TABLE boardgame.admin_authority(
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 # 권한 입력
-INSERT INTO authority (id, name) 
+INSERT INTO boardgame.authority (id, name) 
 	VALUES (10, 'ADMIN');
-INSERT INTO authority (id, name) 
-	VALUES (20, 'USER');
 	
 # 관리자 입력
-
+INSERT INTO boardgame.admin (id, password, nickname)
+	value ('admin', '1234', '관리자');
+	
+# 관리자에게 권한 부여
+INSERT INTO boardgame.admin_authority
+	VALUES ('admin', 10);
+	
+	select * from boardgame.authority;
 
 
