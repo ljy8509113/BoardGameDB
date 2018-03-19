@@ -17,7 +17,7 @@ public class Common {
 
 
 	//---성은--------------------------------------//
-
+	public static final int DIVINCHICODE_GAME_CODE = 1;
 
 
 	//---정욱--------------------------------------//
