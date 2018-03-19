@@ -10,10 +10,15 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import com.database.dao.AdminDao;
+import com.database.dao.AuthorityDao;
 import com.database.dao.ScoreDao;
 import com.database.dao.UserDao;
+import com.database.model.Admin;
+import com.database.model.Authority;
 import com.database.model.Score;
 import com.database.model.User;
+import com.database.util.AdminException;
 import com.database.util.CustomException;
 
 public class DBController {
@@ -23,6 +28,9 @@ public class DBController {
 		if(instance == null) {
 			instance = new DBController();
 			instance.userDao = new UserDao(); 
+			instance.scoreDao = new ScoreDao();
+			instance.adminDao = new AdminDao();
+			instance.authorityDao = new AuthorityDao();
 		}
 
 		return instance;
@@ -30,6 +38,8 @@ public class DBController {
 
 	UserDao userDao = null;
 	ScoreDao scoreDao = null;
+	AdminDao adminDao = null;
+	AuthorityDao authorityDao = null;
 	
 	public User login(String email, String password) throws InvalidKeyException, ClassNotFoundException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, CustomException, SQLException{
 		return userDao.selectUser(email, password);
@@ -47,7 +57,13 @@ public class DBController {
 
 
 	//---여정--------------------------------------//
-
+	public Admin selectAdmin(String id) throws AdminException {
+		return adminDao.selectAdmin(id);
+	}
+	
+	public Authority selectAuthority(Integer id) {
+		return authorityDao.selectAuthority(id);
+	}
 
 
 	//---성은--------------------------------------//

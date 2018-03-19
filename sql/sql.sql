@@ -72,5 +72,13 @@ CREATE TABLE boardgame.admin_authority(
 	FOREIGN KEY (authority_id) REFERENCES boardgame.authority (id)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-select * from boardgame.user;
+# 권한 입력
+INSERT INTO authority (id, name) 
+	VALUES (10, 'ADMIN');
+INSERT INTO authority (id, name) 
+	VALUES (20, 'USER');
+	
+# 관리자 입력
+
+
 

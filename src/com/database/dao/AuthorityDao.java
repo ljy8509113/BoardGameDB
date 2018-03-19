@@ -2,11 +2,9 @@ package com.database.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import com.database.model.Authority;
 
-@Repository
 public class AuthorityDao {
 
 	private static final String MAPPER_NS = Authority.class.getName();
@@ -16,7 +14,7 @@ public class AuthorityDao {
 	
 	public AuthorityDao() {}
 	
-	public Authority select(Integer id) {
+	public Authority selectAuthority(Integer id) {
 		
 		Authority authority = null;
 		

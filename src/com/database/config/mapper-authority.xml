@@ -6,7 +6,7 @@
   <mapper namespace="com.database.model.Authority">
  
  	<select id="select-authority" parameterType="int" resultType="Authority">
- 		SELECT * FROM authority WHERE id = #{id}
+ 		SELECT * FROM boardgame.authority WHERE id = #{id}
  	</select>
  	
  
