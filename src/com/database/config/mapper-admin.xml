@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.database.model.Admin">
+  	<!-- 
+  	<resultMap type="User" id="UserResultMap">
+  		<result property="email" column="email"/>
+  		<result property="password" column="password"/>
+  		<result property="nickname" column="nickname"/>
+  		<result property="birthday" column="birthday"/>
+  		<result property="failCount" column="fail_count"/>
+  		<result property="joinDate" column="join_date"/>
+  	</resultMap>
+  	 -->
+  	 <!-- 
+  	<select id="select-user" parameterType="String" resultMap="UserResultMap">
+  		
+  	</select>
+  	 -->
+  	 
+  	 
+  	<select id="select-admin" parameterType="String" resultType="Admin">
+  		SELECT * FROM boardgame.admin WHERE id = #{id}
+  	</select>
+  	
+  	<!-- <select id="select-id" parameterType="String" resultType="int">
+  		SELECT COUNT(*) FROM boardgame.admin WHERE id = #{id}
+  	</select>
+  	
+  	<update id="update-fail-count" parameterType="java.util.HashMap">
+  		UPDATE boardgame.admin SET fail_count = #{count} WHERE id = #{id} 
+  	</update> -->
+  	
+  	
+  	
+  </mapper>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
