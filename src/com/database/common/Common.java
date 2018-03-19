@@ -11,4 +11,14 @@ public class Common {
 	public static final int CODE_ERROR_PASSWORD_MISS 		= 202;
 	public static final int CODE_ERROR_PASSWORD_FAIL_FULL 	= 203;
 	public static final int CODE_ERROR_NICKNAME_OVERLAP 	= 204;
+
+	//---여정--------------------------------------//
+
+
+
+	//---성은--------------------------------------//
+
+
+
+	//---정욱--------------------------------------//
 }
