@@ -11,7 +11,7 @@ public class GameDao extends BaseDao {
 		
 	}
 	
-	public Game select(String game_no) {
+	public Game select(Integer game_no) {
 		Game game = null;
 		
 		try {
