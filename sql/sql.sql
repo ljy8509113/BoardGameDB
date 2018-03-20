@@ -101,3 +101,5 @@ INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdat
 		link, writer) values('공지사항-테스트3','설명-테스트3',null, null,'B',CURDATE(),"", 'admin');
 
 SELECT * FROM boardgame.notice WHERE game_no = 1 or game_no = 0;
+
+
