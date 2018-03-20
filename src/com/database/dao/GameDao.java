@@ -46,6 +46,7 @@ public class GameDao extends BaseDao {
 		try {
 			session.insert(MAPPER_NS + ".insert-game", game);
 		}catch(Exception e) {
+			e.printStackTrace();
 			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
 		}
 	}
