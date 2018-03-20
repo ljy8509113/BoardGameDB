@@ -6,6 +6,7 @@ nickname varchar(50) not null,
 fail_count int default 0,
 PRIMARY KEY (id)) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+// 타입이 B면 B인것에 대해서만 보여줌
 create table boardgame.notice(
     no int not null auto_increment,
     title varchar(200) not null,
@@ -16,6 +17,7 @@ create table boardgame.notice(
     regdate date not null,
     link varchar(250) null,
     writer varchar(100) not null,
+    game_no int default 0,
     primary key(no),
     foreign key(writer) references boardgame.admin (id)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -80,5 +82,14 @@ INSERT INTO authority (id, name)
 	
 # 관리자 입력
 
+desc boardgame.notice;
+INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdate,
+		link, writer) values('공지사항-테스트1','설명-테스트1',null, null,'B',CURDATE(),"", 'admin');
+		
+INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdate,
+		link, writer) values('공지사항-테스트2','설명-테스트2',null, null,'B',CURDATE(),"", 'admin');
+		
+INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdate,
+		link, writer) values('공지사항-테스트3','설명-테스트3',null, null,'B',CURDATE(),"", 'admin');
 
-
+SELECT * FROM boardgame.notice WHERE game_no = 1 or game_no = 0;

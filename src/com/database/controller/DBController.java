@@ -14,11 +14,13 @@ import javax.crypto.NoSuchPaddingException;
 import com.database.dao.AdminDao;
 import com.database.dao.AuthorityDao;
 import com.database.dao.GameDao;
+import com.database.dao.NoticeDao;
 import com.database.dao.ScoreDao;
 import com.database.dao.UserDao;
 import com.database.model.Admin;
 import com.database.model.Authority;
 import com.database.model.Game;
+import com.database.model.Notice;
 import com.database.model.Score;
 import com.database.model.User;
 import com.database.util.AdminException;
@@ -35,6 +37,7 @@ public class DBController {
 			instance.adminDao = new AdminDao();
 			instance.authorityDao = new AuthorityDao();
 			instance.gameDao = new GameDao();
+			instance.noticeDao = new NoticeDao();
 		}
 
 		return instance;
@@ -43,6 +46,7 @@ public class DBController {
 	UserDao userDao = null;
 	ScoreDao scoreDao = null;
 	GameDao gameDao = null;
+	NoticeDao noticeDao = null;
 	AdminDao adminDao = null;
 	AuthorityDao authorityDao = null;
 	
@@ -72,10 +76,17 @@ public class DBController {
 
 
 	//---성은--------------------------------------//
-	public List<Game> selectAllGame(String game_no) {
-		return gameDao.selectAll();
+	public List<Game> selectAllGame(int game_no) {
+		return gameDao.selectAll(game_no);
+	}
+	
+	public List<Notice> selectAllNotice(Integer gameNo) {
+		return noticeDao.selectAll(gameNo);
 	}
 
+	public Notice selectNotice(Integer no){
+		return noticeDao.select(no);
+	}
 	
 
 	//---정욱--------------------------------------//

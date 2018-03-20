@@ -25,11 +25,11 @@ public class GameDao extends BaseDao {
 		return game;
 	}
 
-	public List<Game> selectAll() {
+	public List<Game> selectAll(int gameNo) {
 		List<Game> list = null;
 		
 		try {
-			list = session.selectList(MAPPER_NS + ".select-all-game");
+			list = session.selectList(MAPPER_NS + ".select-all-game", gameNo);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
