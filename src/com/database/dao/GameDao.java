@@ -2,7 +2,9 @@ package com.database.dao;
 
 import java.util.List;
 
+import com.database.common.ResCode;
 import com.database.model.Game;
+import com.database.util.CustomException;
 
 public class GameDao extends BaseDao {
 	final String MAPPER_NS = Game.class.getName();
@@ -11,11 +13,11 @@ public class GameDao extends BaseDao {
 		
 	}
 	
-	public Game select(Integer game_no) {
+	public Game select(Integer gameNo) {
 		Game game = null;
 		
 		try {
-			game = session.selectOne(MAPPER_NS + ".select-game", game_no);
+			game = session.selectOne(MAPPER_NS + ".select-game", gameNo);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -37,5 +39,21 @@ public class GameDao extends BaseDao {
 		}
 		
 		return list;
+	}
+	
+	public void insert(Game game) throws CustomException {
+		try {
+			session.insert(MAPPER_NS + ".insert-game", game);
+		}catch(Exception e) {
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
+		}
+	}
+	
+	public void update(Game game) throws CustomException{
+		try {
+			session.update(MAPPER_NS +".update-game", game);
+		}catch(Exception e) {
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
+		}
 	}
 }

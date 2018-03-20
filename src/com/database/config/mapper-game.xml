@@ -23,11 +23,21 @@
   	</select>
   	-->
   	
-  	<select id="select-game" parameterType="String" resultType="Game">
-  		SELECT * FROM game WHERE game_no = #{game_no}
+  	<select id="select-game" parameterType="int" resultType="Game">
+  		SELECT * FROM game WHERE game_no = #{gameNo}
   	</select>
   	<select id="select-all-game" resultType="Game">
   		SELECT * FROM game
   	</select>
+  	
+  	<insert id="insert-game" parameterType="Game">
+  		insert into game (title, description, cover_image, state, file_name, version) 
+  		values (#{title}, #{description}, #{coverImage}, #{state}, #{fileName}, #{version})
+  	</insert>
+  	
+  	<update id="update-game" parameterType="Game">
+  		update game set title = #{title}, description = #{description}, cover_image = #{coverImage}, state = #{state}, file_name = #{fileName}, version = #{version}
+  		where game_no = #{gameNo}  		
+  	</update>
   	
   </mapper>

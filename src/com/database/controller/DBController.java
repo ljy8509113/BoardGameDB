@@ -62,9 +62,6 @@ public class DBController {
 		userDao.insert(user);
 	}
 
-
-
-
 	//---여정--------------------------------------//
 	public Admin selectAdmin(String id) throws AdminException {
 		return adminDao.selectAdmin(id);
@@ -77,7 +74,6 @@ public class DBController {
 	public Game selectGameDetail(Integer gameNo) {
 		return gameDao.select(gameNo);
 	}
-
 
 	//---성은--------------------------------------//
 	public List<Game> selectAllGame() {
@@ -92,9 +88,20 @@ public class DBController {
 		return noticeDao.select(no);
 	}
 	
-
 	//---정욱--------------------------------------//
 	public Score selectScore(String email, int gameNo) throws CustomException {
 		return scoreDao.select(email, gameNo);
 	}
+	
+	public void insertGame(Game game) throws CustomException {
+		gameDao.insert(game);
+	}
+
+	public void updateGame(Game game) throws CustomException {
+		gameDao.update(game);
+	}
+	
+	
+	
+	
 }
