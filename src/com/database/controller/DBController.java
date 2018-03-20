@@ -73,19 +73,15 @@ public class DBController {
 	public Authority selectAuthority(Integer id) {
 		return authorityDao.selectAuthority(id);
 	}
-	
-	public List<Game> selectAllGame(){
-		return gameDao.selectAll();
-	}
-	
+		
 	public Game selectGameDetail(Integer gameNo) {
 		return gameDao.select(gameNo);
 	}
 
 
 	//---성은--------------------------------------//
-	public List<Game> selectAllGame(int game_no) {
-		return gameDao.selectAll(game_no);
+	public List<Game> selectAllGame() {
+		return gameDao.selectAll();
 	}
 	
 	public List<Notice> selectAllNotice(Integer gameNo) {
