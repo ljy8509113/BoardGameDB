@@ -73,6 +73,14 @@ public class DBController {
 	public Authority selectAuthority(Integer id) {
 		return authorityDao.selectAuthority(id);
 	}
+	
+	public List<Game> selectAllGame(){
+		return gameDao.selectAll();
+	}
+	
+	public Game selectGameDetail(Integer gameNo) {
+		return gameDao.select(gameNo);
+	}
 
 
 	//---성은--------------------------------------//

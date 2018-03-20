@@ -10,9 +10,9 @@ public class Admin implements Serializable{
 
 	private String id;			//계정 id
 	private String password;	//비밀번호
-	private String nickName;	//보여질 닉네임
+	private String nickname;	//보여질 닉네임
 	private Integer failCount;	//로그인 실패 횟수
-	private Set<Authority> authoriites;		// 해당 관리자의 권한 목록
+	private Set<Authority> authorities;		// 해당 관리자의 권한 
 	
 	public Admin() {		
 	}
@@ -20,7 +20,7 @@ public class Admin implements Serializable{
 	public Admin(String id, String password, String nickName, Integer failCount) {
 		this.id = id;
 		this.password = password;
-		this.nickName = nickName;
+		this.nickname = nickName;
 		this.failCount = failCount;
 	}
 
@@ -40,12 +40,12 @@ public class Admin implements Serializable{
 		this.password = password;
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public Integer getFailCount() {
@@ -55,23 +55,23 @@ public class Admin implements Serializable{
 	public void setFailCount(Integer failCount) {
 		this.failCount = failCount;
 	}
-
-	public Set<Authority> getAuthoriites() {
-		return authoriites;
+	
+	public Set<Authority> getAuthorities() {
+		return authorities;
 	}
 
-	public void setAuthoriites(Set<Authority> authoriites) {
-		this.authoriites = authoriites;
+	public void setAuthorities(Set<Authority> authoriites) {
+		this.authorities = authoriites;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((authoriites == null) ? 0 : authoriites.hashCode());
+		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
 		result = prime * result + ((failCount == null) ? 0 : failCount.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nickName == null) ? 0 : nickName.hashCode());
+		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
@@ -99,11 +99,11 @@ public class Admin implements Serializable{
 		builder.append(", password=");
 		builder.append(password);
 		builder.append(", nickName=");
-		builder.append(nickName);
+		builder.append(nickname);
 		builder.append(", failCount=");
 		builder.append(failCount);
 		builder.append(", authoriites=");
-		builder.append(authoriites);
+		builder.append(authorities);
 		builder.append("]");
 		return builder.toString();
 	}
