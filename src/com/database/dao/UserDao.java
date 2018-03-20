@@ -21,7 +21,7 @@ public class UserDao extends BaseDao{
 	
 	final String MAPPER_NS = User.class.getName();
 	
-	public UserDao() {
+	public UserDao() {		
 	}
 	
 	public void insert(User user) throws CustomException, ClassNotFoundException, SQLException, InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {

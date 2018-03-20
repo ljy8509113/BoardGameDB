@@ -1,16 +1,13 @@
 package com.database.dao;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.database.model.Authority;
 
-public class AuthorityDao {
+public class AuthorityDao extends BaseDao {
 
 	private static final String MAPPER_NS = Authority.class.getName();
 	
-	@Autowired
-	private SqlSession session;
+//	@Autowired
+//	private SqlSession session;
 	
 	public AuthorityDao() {}
 	

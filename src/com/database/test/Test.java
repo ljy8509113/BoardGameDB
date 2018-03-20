@@ -1,11 +1,5 @@
 package com.database.test;
 
-import com.database.controller.DBController;
-import com.database.model.Game;
-import com.database.model.User;
-import com.database.util.CustomException;
-import com.security.Security;
-
 public class Test {
 	public static void main(String[] args) {
 //		try {
@@ -35,6 +29,21 @@ public class Test {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		
+		
+//		try {
+//			Score score = DBController.Instance().selectUserScore("imsi1@gmail.com", 1);
+//			List<Score> list = DBController.Instance().selectRank(1);
+//			
+//			System.out.println(score);
+//			System.out.println();
+//			System.out.println(list.size());
+//			
+//		} catch (CustomException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		
 	}
 }

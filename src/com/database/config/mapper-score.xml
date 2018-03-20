@@ -5,10 +5,23 @@
   
   <mapper namespace="com.database.model.Score">
   	 
-  	<select id="select" parameterType="java.util.HashMap" resultType="Score">
-  		SELECT * FROM score WHERE email = #{email} and game_no = #{gameNo}
+  	<select id="select-total" parameterType="Integer" resultType="Score">
+  		SELECT * FROM score WHERE game_no = #{gameNo} ORDER BY point DESC
   	</select>
   	
+  	<select id="select-user-score" parameterType="java.util.HashMap" resultType="Score">
+  		SELECT * FROM score WHERE email=#{email} AND game_no=#{gameNo} 
+  	</select>
+  	
+  	<insert id="insert-score" parameterType="Score">
+  		INSERT INTO score (email, total, win, lose, disconnect, game_no, point)
+  		 values(#{email}, #{total}, #{win}, #{lose}, #{disconnect}, #{game_no}, #{point}) 
+  	</insert>
+  	
+  	<update id="update-score" parameterType="Score">
+  		UPDATE score SET email = #{email}, total = #{total}, lose = #{lose}, disconnect = #{disconnect}, game_no = #{gameNo}, point = #{point}
+  		WHERE email = #{email} 
+  	</update>
   </mapper>
   
   

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.database.model.SubImage">
+  	<select id="select-subimage" parameterType="int" resultType="SubImage">
+  		SELECT * FROM sub_image WHERE game_no = #{gameNo}
+  	</select>
+  	
+  	<insert id="insert-subimage" parameterType="SubImage">
+  		INSERT INTO sub_image (no, path, game_no) 
+  		values (#{no}, #{path}, #{gameNo})
+  	</insert>
+  	
+  	<update id="update-subimage" parameterType="SubImage">
+  		UPDATE sub_image SET no = #{no}, path = #{path}, game_no=#{gameNo}
+  		WHERE no = #{no} AND game_no=#{gameNo}
+  	</update>
+  	
+  	<delete id="delete-subimage" parameterType="java.util.HashMap">
+  		DELETE FROM sub_image WHERE game_no=#{game_no} AND no=#{no}  
+  	</delete>
+  	
+  </mapper>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  

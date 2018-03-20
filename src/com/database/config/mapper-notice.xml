@@ -11,6 +11,17 @@
   		SELECT * FROM boardgame.notice WHERE game_no = #{gameNo} or game_no = 0 
   	</select>
 
+  	
+  	<insert id="insert-notice" parameterType="Notice">
+  		INSERT INTO notice (title, description, showtime, endtime, type, regdate, link, writer, game_no) 
+  		values (#{title}, #{description}, #{showTime}, #{endTime}, #{type}, CURDATE(), #{link}, #{writer}, #{gameNo})
+  	</insert>
+  	
+  	<update id="update-notice" parameterType="Notice">
+  		UPDATE notice SET title = #{title}, description = #{description}, showtime = #{showtime}, endtime = #{endtime}, type = #{type}, link = #{link}, writer = #{writer}, game_no=#{gameNo}
+  		WHERE no = #{no}
+  	</update>
+
   </mapper>
   
   
