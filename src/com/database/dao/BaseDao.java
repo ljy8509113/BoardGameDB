@@ -6,11 +6,16 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public abstract class BaseDao {
 	
-	protected ApplicationContext context;
-	protected SqlSession session;
+	protected static ApplicationContext context = null;
+	protected static SqlSession session = null;
 	
 	public BaseDao() {
-		context = new GenericXmlApplicationContext("/com/database/config/applicationContext.xml");
-		session =  context.getBean(SqlSession.class);
+		if(context == null) {
+			context = new GenericXmlApplicationContext("/com/database/config/applicationContext.xml");
+			session =  context.getBean(SqlSession.class);
+			System.out.println("basedao null");
+		}else {
+			System.out.println("basedao null 아님");
+		}
 	}
 }

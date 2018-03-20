@@ -17,7 +17,7 @@ public class AdminDao extends BaseDao {
 		Admin admin = null;
 
 		admin = session.selectOne(MAPPER_NS + ".select-admin", id);
-
+		
 		return admin;
 	}
 
