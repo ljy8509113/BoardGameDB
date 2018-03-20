@@ -12,17 +12,19 @@ public class Score implements Serializable {
 	private int lose;			//패배 수
 	private int disconnect;		//경기중 연결이 끊겨서 참여하지 못한 횟수
 	private int gameNo;			//게임 no
+	private int point;			//게임 총 포인트
 	
 	public Score() {		
 	}
 	
-	public Score(String email, int total, int win, int lose, int disconnect, int gameNo) {
+	public Score(String email, int total, int win, int lose, int disconnect, int gameNo, int point) {
 		this.email = email;
 		this.total = total;
 		this.win = win;
 		this.lose = lose;
 		this.disconnect = disconnect;
 		this.gameNo = gameNo;
+		this.point = point;
 	}
 
 	public String getEmail() {
@@ -71,6 +73,14 @@ public class Score implements Serializable {
 
 	public void setGameNo(int gameNo) {
 		this.gameNo = gameNo;
+	}
+	
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
 	}
 
 	@Override

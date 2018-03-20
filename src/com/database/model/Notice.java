@@ -16,11 +16,12 @@ public class Notice implements Serializable{
 	private Date regDate; 		//등록시간
 	private String link;		//링크가 존재할 경우 링크 주소
 	private String writer;		//작성자 id(Admin)
-    
+    private Integer gameNo;		//게임넘버(0:전체공지, 아닐경우 게임NO 입력)
+	
 	public Notice() {		
 	}
 
-	public Notice(Integer no, String title, String description, Date showTime, Date endTime, String type, Date regDate, String link, String writer) {
+	public Notice(Integer no, String title, String description, Date showTime, Date endTime, String type, Date regDate, String link, String writer, Integer gameNo) {
 		this.no = no;
 		this.title = title;
 		this.description = description;
@@ -30,6 +31,7 @@ public class Notice implements Serializable{
 		this.regDate = regDate;
 		this.link = link;
 		this.writer = writer;
+		this.gameNo = gameNo;
 	}
 	
 	public Integer getNo() {
@@ -102,6 +104,14 @@ public class Notice implements Serializable{
 
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	
+	public Integer getGameNo() {
+		return gameNo;
+	}
+
+	public void setGameNo(Integer gameNo) {
+		this.gameNo = gameNo;
 	}
 
 	@Override

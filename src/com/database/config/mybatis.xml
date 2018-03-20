@@ -15,6 +15,7 @@
   		<typeAlias type="com.database.model.Admin" alias="Admin"/>
   		<typeAlias type="com.database.model.Game" alias="Game"/>
   		<typeAlias type="com.database.model.Authority" alias="Authority"/>
-  		<typeAlias type="com.database.model.Notice" alias="Notice"/>  		
+  		<typeAlias type="com.database.model.Notice" alias="Notice"/>
+  		<typeAlias type="com.database.model.SubImage" alias="SubImage"/>  		
   	</typeAliases>
   </configuration>

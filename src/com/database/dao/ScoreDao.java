@@ -1,40 +1,50 @@
 package com.database.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.database.common.ResCode;
-import com.database.model.Game;
 import com.database.model.Score;
 import com.database.util.CustomException;
 
 public class ScoreDao extends BaseDao{
-	
-	private static ScoreDao instance = null;
-	public static ScoreDao Instance() {
-		if(instance == null)
-			instance = new ScoreDao();
-		return instance;
-	}
-	
 	final String MAPPER_NS = Score.class.getName();
 	
-	public ScoreDao() {
-		
+	public ScoreDao() {		
 	}
 	
-	public Score select(String email, int gameNo) throws CustomException {
-		Score score;
+	public List<Score> selectGameRank(int gameNo) throws CustomException {
+		List<Score> list;
 		try {
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("email", email);
-			map.put("game_no",""+gameNo);
-			score = session.selectOne(MAPPER_NS+".select", map);
+			list = session.selectList(MAPPER_NS+".select-total", gameNo);
 			
-			if(score == null || score.getEmail() == null || score.getEmail().equals("")) {
-				score = new Score(email, 0, 0, 0, 0, gameNo);
+			if(list == null || list.size() == 0) {
+				throw new CustomException(ResCode.ERROR_SCORE_NOT_FOUND.getResCode(), ResCode.ERROR_SCORE_NOT_FOUND.getMessage());
 			}
 			
 		}catch(Exception e) {
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
+		}
+		
+		return list;
+	}
+	
+	public Score select(String email, int gameNo) throws CustomException {
+		
+		Score score = null;
+		try {
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("email", email);
+			map.put("gameNo", gameNo);
+			
+			score = session.selectOne(MAPPER_NS+".select-user-score", map);
+			
+			if(score == null || score.getEmail() == null || score.getEmail().equals("")) {
+				throw new CustomException(ResCode.ERROR_USER_SCORE_NOT_FOUND.getResCode(), ResCode.ERROR_USER_SCORE_NOT_FOUND.getMessage());
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
 			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
 		}
 		

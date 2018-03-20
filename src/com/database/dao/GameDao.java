@@ -9,11 +9,10 @@ import com.database.util.CustomException;
 public class GameDao extends BaseDao {
 	final String MAPPER_NS = Game.class.getName();
 	
-	public GameDao() {
-		
+	public GameDao() {		
 	}
 	
-	public Game select(Integer gameNo) {
+	public Game select(Integer gameNo) throws CustomException {
 		Game game = null;
 		
 		try {
@@ -22,12 +21,13 @@ public class GameDao extends BaseDao {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			/*throw new BoardException(e.getMessage());*/
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
 		}
 		
 		return game;
 	}
 
-	public List<Game> selectAll() {
+	public List<Game> selectAll() throws CustomException {
 		List<Game> list = null;
 		
 		try {
@@ -36,6 +36,7 @@ public class GameDao extends BaseDao {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			/*throw new BoardException(e.getMessage());*/
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
 		}
 		
 		return list;
