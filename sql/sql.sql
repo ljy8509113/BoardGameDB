@@ -88,6 +88,7 @@ INSERT INTO boardgame.admin_authority
 	
 	select * from boardgame.admin WHERE id = 'admin';
 
+	select * from boardgame.game;
 
 
 desc boardgame.notice;

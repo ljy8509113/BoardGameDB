@@ -15,7 +15,6 @@ public class NoticeDao extends BaseDao{
 	//---여정--------------------------------------//
 
 
-
 	//---성은--------------------------------------//
 	public Notice select(Integer no) {
 		Notice notice = null;

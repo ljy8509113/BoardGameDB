@@ -10,8 +10,7 @@
   	<select id="select-all-notice" parameterType="int" resultType="Notice">
   		SELECT * FROM boardgame.notice WHERE game_no = #{gameNo} or game_no = 0 
   	</select>
-  	
-  	
+
   </mapper>
   
   
