@@ -40,7 +40,8 @@ public class ScoreDao extends BaseDao{
 			score = session.selectOne(MAPPER_NS+".select-user-score", map);
 			
 			if(score == null || score.getEmail() == null || score.getEmail().equals("")) {
-				throw new CustomException(ResCode.ERROR_USER_SCORE_NOT_FOUND.getResCode(), ResCode.ERROR_USER_SCORE_NOT_FOUND.getMessage());
+				score = new Score(email, 0, 0, 0, 0, gameNo, 0);
+//				throw new CustomException(ResCode.ERROR_USER_SCORE_NOT_FOUND.getResCode(), ResCode.ERROR_USER_SCORE_NOT_FOUND.getMessage());
 			}
 			
 		}catch(Exception e) {
