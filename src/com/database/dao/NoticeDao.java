@@ -14,6 +14,14 @@ public class NoticeDao extends BaseDao{
 	}
 
 	//---여정--------------------------------------//
+	public void delete(Integer no) throws CustomException {
+		try {
+			session.delete(MAPPER_NS + ".delete-notice", no);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
+		}
+	}
 
 
 	//---성은--------------------------------------//

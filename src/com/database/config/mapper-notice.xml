@@ -18,9 +18,13 @@
   	</insert>
   	
   	<update id="update-notice" parameterType="Notice">
-  		UPDATE notice SET title = #{title}, description = #{description}, showtime = #{showtime}, endtime = #{endtime}, type = #{type}, link = #{link}, writer = #{writer}, game_no=#{gameNo}
+  		UPDATE notice SET title = #{title}, description = #{description}, showtime = #{showTime}, endtime = #{endTime}, type = #{type}, link = #{link}, writer = #{writer}, game_no=#{gameNo}
   		WHERE no = #{no}
   	</update>
+  	
+  	<delete id="delete-notice" parameterType="Integer">
+  		DELETE FROM boardgame.notice WHERE no = #{no}
+  	</delete>
 
   </mapper>
   
