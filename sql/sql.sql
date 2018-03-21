@@ -95,6 +95,8 @@ desc boardgame.notice;
 INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdate,
 		link, writer) values('공지사항-테스트1','설명-테스트1',null, null,'B',CURDATE(),"", 'admin');
 		
+alter table boardgame.notice modify regdate DATETIME;
+		
 INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdate,
 		link, writer) values('공지사항-테스트2','설명-테스트2',null, null,'B',CURDATE(),"", 'admin');
 		
