@@ -1,5 +1,5 @@
 
-create table boardgame.admin(
+create table admin(
 id varchar(100) not null,
 password varchar(60) not null,
 nickname varchar(50) not null,
@@ -7,7 +7,7 @@ fail_count int default 0,
 PRIMARY KEY (id)) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 // 타입이 B면 B인것에 대해서만 보여줌
-create table boardgame.notice(
+create table notice(
     no int not null auto_increment,
     title varchar(200) not null,
     description text not null,
@@ -19,7 +19,7 @@ create table boardgame.notice(
     writer varchar(100) not null,
     game_no int default 0,
     primary key(no),
-    foreign key(writer) references boardgame.admin (id)
+    foreign key(writer) references admin (id)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 create table game(
@@ -32,7 +32,7 @@ file_name varchar(150),
 version varchar(10) null,
 PRIMARY KEY (game_no) ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-create table boardgame.user(
+create table user(
 email varchar(100) not null,
 password varchar(60) not null,
 nickname varchar(50) not null,
@@ -41,23 +41,24 @@ join_date date null,
 fail_count int default 0,
 PRIMARY KEY (email)) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-create table boardgame.history(
+create table score(
 email varchar(100) not null,
-total int,		
-win int,		
-lose int,		
-disconnect int,		
+total int not null default 0,		
+win int not null default 0,		
+lose int not null default 0,		
+disconnect int not null default 0,		
 game_no int not null,
+point int not null default 0,
 PRIMARY KEY (email, game_no),
-FOREIGN KEY (email) REFERENCES boardgame.user (email),
-FOREIGN KEY (game_no) REFERENCES boardgame.game (game_no)) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;		
+FOREIGN KEY (email) REFERENCES user (email),
+FOREIGN KEY (game_no) REFERENCES game (game_no)) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;		
 
-create table boardgame.device(
+create table device(
 	email varchar(100) not null,
     uuid varchar(100) not null,
     os varchar(10) not null,
     version varchar(20) null,
-    foreign key(email) references boardgame.user(email)
+    foreign key(email) references user(email)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 # 사용자 권한 정의한 테이블 
