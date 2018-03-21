@@ -13,11 +13,12 @@ public class Score implements Serializable {
 	private int disconnect;		//경기중 연결이 끊겨서 참여하지 못한 횟수
 	private int gameNo;			//게임 no
 	private int point;			//게임 총 포인트
+	private String nickName;	//사용자 닉네임
 	
 	public Score() {		
 	}
 	
-	public Score(String email, int total, int win, int lose, int disconnect, int gameNo, int point) {
+	public Score(String email, int total, int win, int lose, int disconnect, int gameNo, int point, String nickName) {
 		this.email = email;
 		this.total = total;
 		this.win = win;
@@ -25,6 +26,7 @@ public class Score implements Serializable {
 		this.disconnect = disconnect;
 		this.gameNo = gameNo;
 		this.point = point;
+		this.nickName = nickName;
 	}
 
 	public String getEmail() {
@@ -82,11 +84,20 @@ public class Score implements Serializable {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("History [email=");
+		builder.append("Score [email=");
 		builder.append(email);
 		builder.append(", total=");
 		builder.append(total);
@@ -98,6 +109,10 @@ public class Score implements Serializable {
 		builder.append(disconnect);
 		builder.append(", gameNo=");
 		builder.append(gameNo);
+		builder.append(", point=");
+		builder.append(point);
+		builder.append(", nickName=");
+		builder.append(nickName);
 		builder.append("]");
 		return builder.toString();
 	}
