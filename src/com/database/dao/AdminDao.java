@@ -1,8 +1,5 @@
 package com.database.dao;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.database.model.Admin;
 
 public class AdminDao extends BaseDao {
