@@ -7,7 +7,7 @@
   	 
   	<select id="select-total" parameterType="Integer" resultType="Score">
   		SELECT s.email, s.game_no, s.total, s.lose, s.win, s.disconnect, s.point, u.nickname 
-  		FROM score s INNER JOIN user u ON s.email = u.email ORDER BY point DESC;
+  		FROM score s INNER JOIN user u ON s.email = u.email ORDER BY point DESC
   	</select>
   	
   	<select id="select-user-score" parameterType="java.util.HashMap" resultType="Score">
