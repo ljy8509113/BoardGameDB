@@ -13,7 +13,6 @@ public class SubImage implements Serializable {
 	}
 	
 	public SubImage(int no, String path, int gameNo) {
-		super();
 		this.no = no;
 		this.path = path;
 		this.gameNo = gameNo;

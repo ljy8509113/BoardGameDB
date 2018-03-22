@@ -1,5 +1,11 @@
 package com.database.test;
 
+import java.util.List;
+
+import com.database.dao.ScoreDao;
+import com.database.model.Score;
+import com.database.util.CustomException;
+
 public class Test {
 	public static void main(String[] args) {
 //		try {
@@ -44,6 +50,15 @@ public class Test {
 //			e.printStackTrace();
 //		}
 		
-		
+		ScoreDao dao = new ScoreDao();
+		try {
+			List<Score> list = dao.selectGameRank(8);
+			for(Score s : list) {
+				System.out.println(s.toString());
+			}
+		} catch (CustomException e) {
+			
+			e.printStackTrace();
+		}
 	}
 }

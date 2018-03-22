@@ -22,7 +22,8 @@ public enum ResCode {
 
 	//---정욱--------------------------------------//
 	ERROR_USER_SCORE_NOT_FOUND(Common.CODE_ERROR_USER_SCORE_NOT_FOUND),
-	ERROR_SCORE_NOT_FOUND(Common.CODE_ERROR_SCORE_NOT_FOUND);
+	ERROR_SCORE_NOT_FOUND(Common.CODE_ERROR_SCORE_NOT_FOUND),
+	ERROR_NOT_FOUND_ROOM(Common.CODE_ERROR_NOT_FOUND_ROOM);
 	
 	int resCode;
 	String message;
@@ -64,6 +65,9 @@ public enum ResCode {
 			break;
 		case Common.CODE_ERROR_SCORE_NOT_FOUND :
 			message = "스코어가 존재하지 않습니다.";
+			break;
+		case Common.CODE_ERROR_NOT_FOUND_ROOM:
+			message = "게임방을 찾을 수 없습니다.";
 			break;
 		}
 	}

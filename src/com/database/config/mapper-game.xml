@@ -40,4 +40,8 @@
   		where game_no = #{gameNo}  		
   	</update>
   	
+  	<select id="last-insert-no" resultType="Integer">
+  		SELECT LAST_INSERT_ID()
+  	</select>
+  	
   </mapper>
