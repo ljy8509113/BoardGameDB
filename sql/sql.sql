@@ -107,5 +107,21 @@ INSERT INTO boardgame.notice (title,description, showtime, endtime, type, regdat
 
 SELECT * FROM boardgame.notice WHERE game_no = 1 or game_no = 0;
 
+INSERT INTO boardgame.user (email, password, nickname, birthday, join_date, fail_count)
+	values ('test@gamil.com', '1234', 'Nick', null, null, null);
+INSERT INTO boardgame.user (email, password, nickname, birthday, join_date, fail_count)
+	values ('test2@gamil.com', '1234', 'Lick', null, null, null);
+INSERT INTO boardgame.user (email, password, nickname, birthday, join_date, fail_count)
+	values ('test3@gamil.com', '1234', 'Rick', null, null, null);
 
-
+SELECT * FROM boardgame.score;
+SELECT s.email, s.game_no, s.total, s.lose, s.win, s.disconnect, s.point, u.nickname 
+  		FROM boardgame.score s INNER JOIN user u ON s.email = u.email ORDER BY point DESC;
+ 
+ SELECT * FROM boardgame.game;
+ 
+ 
+ update boardgame.game set title = '제목', description = '내용출력 테스트 게임 테스트', state = 'D'
+ 	, cover_image = '1231624c2e6178.jpg' where game_no = 11;
+ 
+ 
