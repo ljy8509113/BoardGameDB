@@ -58,4 +58,13 @@ public class GameDao extends BaseDao {
 			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
 		}
 	}
+	
+	public int selectLastInsertNo() throws CustomException {
+		try {
+			int index = session.selectOne(MAPPER_NS +".last-insert-no");
+			return index;
+		}catch(Exception e) {
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
+		}
+	}
 }
