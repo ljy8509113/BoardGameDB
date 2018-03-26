@@ -5,7 +5,7 @@
   
   <mapper namespace="com.database.model.Notice">
   	<select id="select-notice" parameterType="int" resultType="Notice">
-  		SELECT * FROM boardgame.notice WHERE no = #{no} ORDER BY no DESC
+  		SELECT * FROM boardgame.notice WHERE no = #{no} 
   	</select>
   	<select id="select-all-notice" parameterType="int" resultType="Notice">
   		SELECT * FROM boardgame.notice WHERE game_no = #{gameNo} or game_no = 0 ORDER BY no DESC
