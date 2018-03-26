@@ -23,7 +23,10 @@ public enum ResCode {
 	//---정욱--------------------------------------//
 	ERROR_USER_SCORE_NOT_FOUND(Common.CODE_ERROR_USER_SCORE_NOT_FOUND),
 	ERROR_SCORE_NOT_FOUND(Common.CODE_ERROR_SCORE_NOT_FOUND),
-	ERROR_NOT_FOUND_ROOM(Common.CODE_ERROR_NOT_FOUND_ROOM);
+	ERROR_NOT_FOUND_ROOM(Common.CODE_ERROR_NOT_FOUND_ROOM),
+	
+	//다빈치코드
+	ERROR_NUMBER_NOT_SELECT(Common.CODE_ERROR_NUMBER_NOT_SELECT);
 	
 	int resCode;
 	String message;
@@ -68,6 +71,9 @@ public enum ResCode {
 			break;
 		case Common.CODE_ERROR_NOT_FOUND_ROOM:
 			message = "게임방을 찾을 수 없습니다.";
+			break;
+		case Common.CODE_ERROR_NUMBER_NOT_SELECT :
+			message = "해당번호는 선택할 수 없습니다.";
 			break;
 		}
 	}
