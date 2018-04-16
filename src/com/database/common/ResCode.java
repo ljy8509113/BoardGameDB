@@ -24,6 +24,7 @@ public enum ResCode {
 	ERROR_USER_SCORE_NOT_FOUND(Common.CODE_ERROR_USER_SCORE_NOT_FOUND),
 	ERROR_SCORE_NOT_FOUND(Common.CODE_ERROR_SCORE_NOT_FOUND),
 	ERROR_NOT_FOUND_ROOM(Common.CODE_ERROR_NOT_FOUND_ROOM),
+	ERROR_OTHER_ACCEPT(Common.CODE_ERROR_OTHER_ACCEPT),
 	
 	//다빈치코드
 	ERROR_NUMBER_NOT_SELECT(Common.CODE_ERROR_NUMBER_NOT_SELECT);
@@ -52,7 +53,7 @@ public enum ResCode {
 			message = "가입된 이메일이 존재합니다.";
 			break;
 		case Common.CODE_ERROR_EMAIL_NOT_FOUND :
-			message = "이메일이 존재하지 않습니다.";
+			message = "사용자가 존재하지 않습니다.";
 			break;
 		case Common.CODE_ERROR_PASSWORD_MISS:
 			message = "비밀번호가 일치하지 않습니다.";
@@ -62,6 +63,9 @@ public enum ResCode {
 			break;
 		case Common.CODE_ERROR_NICKNAME_OVERLAP:
 			message = "중복된 닉네임이 존재합니다.";
+			break;
+		case Common.CODE_ERROR_OTHER_ACCEPT :
+			message = "다른 단말기에서 접속되었습니다.";
 			break;
 		case Common.CODE_ERROR_USER_SCORE_NOT_FOUND :
 			message = "유저 스코어가 존재하지 않습니다.";
