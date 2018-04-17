@@ -12,6 +12,7 @@ public class Common {
 	public static final int CODE_ERROR_PASSWORD_FAIL_FULL 		= 203;
 	public static final int CODE_ERROR_NICKNAME_OVERLAP 		= 204;
 	public static final int CODE_ERROR_OTHER_ACCEPT				= 205;
+	public static final int CODE_ERROR_ROOM_PASSWORD_FAIL		= 206;
 
 	//---여정--------------------------------------//
 
