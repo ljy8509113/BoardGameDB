@@ -64,23 +64,21 @@ public class UserDao extends BaseDao{
 		}else if(user.getFailCount() >= 10) {
 			throw new CustomException(ResCode.ERROR_PASSWORD_FAIL_FULL.getResCode(), ResCode.ERROR_PASSWORD_FAIL_FULL.getMessage());
 		}else {
-//			Map<String, String> map = new HashMap<String, String>();
-//			if(password.equals(Security.Instance().deCryption(user.getPassword(), true))) {
-//				map.put("count", "0");
-//				map.put("email", user.getEmail());
-//				session.update(MAPPER_NS + ".update-fail-count", map);
-//				
-//				String pw = Security.Instance().deCryption(user.getPassword(), true);
-//				user.setPassword(Security.Instance().cryption(pw, false));
-//				return user;
-//			}else {
-//				map.put("count", user.getFailCount()+1+"");
-//				map.put("email", user.getEmail());
-//				session.update(MAPPER_NS + ".update-fail-count", map);
-//				throw new CustomException(ResCode.ERROR_PASSWORD_MISS.getResCode(), ResCode.ERROR_PASSWORD_MISS.getMessage());
-//			}
-			return user;
-		}
-			
+			Map<String, String> map = new HashMap<String, String>();
+			if(password.equals(Security.Instance().deCryption(user.getPassword(), true))) {
+				map.put("count", "0");
+				map.put("email", user.getEmail());
+				session.update(MAPPER_NS + ".update-fail-count", map);
+				
+				String pw = Security.Instance().deCryption(user.getPassword(), true);
+				user.setPassword(Security.Instance().cryption(pw, false));
+				return user;
+			}else {
+				map.put("count", user.getFailCount()+1+"");
+				map.put("email", user.getEmail());
+				session.update(MAPPER_NS + ".update-fail-count", map);
+				throw new CustomException(ResCode.ERROR_PASSWORD_MISS.getResCode(), ResCode.ERROR_PASSWORD_MISS.getMessage());
+			}			
+		}			
 	}
 }
