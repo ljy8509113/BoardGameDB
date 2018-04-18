@@ -26,6 +26,8 @@ public enum ResCode {
 	ERROR_NOT_FOUND_ROOM(Common.CODE_ERROR_NOT_FOUND_ROOM),
 	ERROR_OTHER_ACCEPT(Common.CODE_ERROR_OTHER_ACCEPT),
 	ERROR_ROOM_PASSWORD(Common.CODE_ERROR_ROOM_PASSWORD_FAIL),
+	ERROR_DISCONNECT_USER(Common.CODE_ERROR_DISCONNECT_USER),
+	ERROR_NOT_READY(Common.CODE_ERROR_NOT_READY),
 	//다빈치코드
 	ERROR_NUMBER_NOT_SELECT(Common.CODE_ERROR_NUMBER_NOT_SELECT);
 	
@@ -81,6 +83,12 @@ public enum ResCode {
 			break;
 		case Common.CODE_ERROR_ROOM_PASSWORD_FAIL:
 			message = "패스워드가 다릅니다.";
+			break;
+		case Common.CODE_ERROR_DISCONNECT_USER :
+			message = "접속이 끊긴 유저가 존재합니다.";
+			break;
+		case Common.CODE_ERROR_NOT_READY:
+			message = "준비되지 않은 유저가 존재합니다.";
 			break;
 		}
 	}
