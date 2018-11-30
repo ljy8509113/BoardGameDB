@@ -31,12 +31,12 @@
   	</select>
   	
   	<insert id="insert-game" parameterType="Game">
-  		insert into game (title, description, cover_image, state, version) 
-  		values (#{title}, #{description}, #{coverImage}, #{state}, #{version})
+  		insert into game (title, description, cover_image, state) 
+  		values (#{title}, #{description}, #{coverImage}, #{state})
   	</insert>
   	
   	<update id="update-game" parameterType="Game">
-  		update game set title = #{title}, description = #{description}, cover_image = #{coverImage}, state = #{state}, version = #{version}
+  		update game set title = #{title}, description = #{description}, cover_image = #{coverImage}, state = #{state}
   		where game_no = #{gameNo}  		
   	</update>
   	

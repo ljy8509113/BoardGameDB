@@ -4,24 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.database.model.Score">
-  	 
+  	 <!-- 
   	<select id="select-total" parameterType="Integer" resultType="Score">
   		SELECT s.email, s.game_no, s.total, s.lose, s.win, s.disconnect, s.point, u.nickname 
   		FROM score s INNER JOIN user u ON s.email = u.email ORDER BY point DESC
   	</select>
-  	
+  	-->
+  	<select id="select-total" parameterType="Integer" resultType="Score">
+  		SELECT * FROM score
+  	</select>
   	<select id="select-user-score" parameterType="java.util.HashMap" resultType="Score">
-  		SELECT * FROM score WHERE email=#{email} AND game_no=#{gameNo} 
+  		SELECT * FROM score WHERE nickname=#{nickName} AND game_no=#{gameNo} 
   	</select>
   	
   	<insert id="insert-score" parameterType="Score">
-  		INSERT INTO score (email, total, win, lose, disconnect, game_no, point)
-  		 values(#{email}, #{total}, #{win}, #{lose}, #{disconnect}, #{game_no}, #{point}) 
+  		INSERT INTO score (nickname, total, win, lose, draw, game_no)
+  		 values(#{nickname}, #{total}, #{win}, #{lose}, #{draw}, #{game_no}) 
   	</insert>
   	
   	<update id="update-score" parameterType="Score">
-  		UPDATE score SET email = #{email}, total = #{total}, lose = #{lose}, disconnect = #{disconnect}, game_no = #{gameNo}, point = #{point}
-  		WHERE email = #{email} 
+  		UPDATE score SET nickname = #{nickName}, total = #{total}, lose = #{lose}, draw = #{draw}, game_no = #{gameNo}
+  		WHERE nickname = #{nickName} 
   	</update>
   </mapper>
   

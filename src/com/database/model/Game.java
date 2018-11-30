@@ -11,18 +11,16 @@ public class Game implements Serializable{
 	private String title;			//게임 제목
 	private String coverImage;		//게임 대표 이미지
 	private String state;			//게임 상태 D:개발중, O:서비스중, F:서비스종료
-	private String version;			//게임버전
 	
 	public Game() {		
 	}
 	
-	public Game(Integer gameNo, String description, String title, String coverImage, String state, String version) {
+	public Game(Integer gameNo, String description, String title, String coverImage, String state) {
 		this.gameNo = gameNo;
 		this.description = description;
 		this.title = title;
 		this.coverImage = coverImage;
 		this.state = state;
-		this.version = version;
 	}
 
 	public int getGameNo() {
@@ -64,14 +62,6 @@ public class Game implements Serializable{
 	public void setCoverImage(String coverImage) {
 		this.coverImage = coverImage;
 	}
-	
-	public String getVersion() {
-		return version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
-	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -100,8 +90,6 @@ public class Game implements Serializable{
 		builder.append(coverImage);
 		builder.append(", state=");
 		builder.append(state);
-		builder.append(", version=");
-		builder.append(version);
 		builder.append("]");
 		return builder.toString();
 	}

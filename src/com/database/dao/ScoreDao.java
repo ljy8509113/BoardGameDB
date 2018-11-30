@@ -29,18 +29,18 @@ public class ScoreDao extends BaseDao{
 		return list;
 	}
 	
-	public Score select(String email, int gameNo, String nickName) throws CustomException {
+	public Score select(int gameNo, String nickName) throws CustomException {
 		
 		Score score = null;
 		try {
 			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("email", email);
+			map.put("nickName", nickName);
 			map.put("gameNo", gameNo);
 			
 			score = session.selectOne(MAPPER_NS+".select-user-score", map);
 			
-			if(score == null || score.getEmail() == null || score.getEmail().equals("")) {
-				score = new Score(email, 0, 0, 0, 0, gameNo, 0, nickName);
+			if(score == null) {
+				score = new Score(0, 0, 0, 0, gameNo, nickName);
 //				throw new CustomException(ResCode.ERROR_USER_SCORE_NOT_FOUND.getResCode(), ResCode.ERROR_USER_SCORE_NOT_FOUND.getMessage());
 			}
 			

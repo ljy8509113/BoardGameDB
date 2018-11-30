@@ -5,38 +5,25 @@ import java.io.Serializable;
 //전적
 public class Score implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	private String email;		//사용자 email
 	private int total;			//총 게임수
 	private int win;			//승리 수
 	private int lose;			//패배 수
-	private int disconnect;		//경기중 연결이 끊겨서 참여하지 못한 횟수
+	private int draw;		//경기중 연결이 끊겨서 참여하지 못한 횟수
 	private int gameNo;			//게임 no
-	private int point;			//게임 총 포인트
 	private String nickName;	//사용자 닉네임
 	
 	public Score() {		
 	}
 	
-	public Score(String email, int total, int win, int lose, int disconnect, int gameNo, int point, String nickName) {
-		this.email = email;
+	public Score(int total, int win, int lose, int draw, int gameNo, String nickName) {
 		this.total = total;
 		this.win = win;
 		this.lose = lose;
-		this.disconnect = disconnect;
+		this.draw = draw;
 		this.gameNo = gameNo;
-		this.point = point;
 		this.nickName = nickName;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	
 	public int getTotal() {
 		return total;
 	}
@@ -61,12 +48,12 @@ public class Score implements Serializable {
 		this.lose = lose;
 	}
 
-	public int getDisconnect() {
-		return disconnect;
+	public int getDraw() {
+		return draw;
 	}
 
-	public void setDisconnect(int disconnect) {
-		this.disconnect = disconnect;
+	public void setDraw(int draw) {
+		this.draw = draw;
 	}
 
 	public int getGameNo() {
@@ -77,15 +64,6 @@ public class Score implements Serializable {
 		this.gameNo = gameNo;
 	}
 	
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
-	
-
 	public String getNickName() {
 		return nickName;
 	}
@@ -97,20 +75,14 @@ public class Score implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Score [email=");
-		builder.append(email);
-		builder.append(", total=");
+		builder.append("Score [total=");
 		builder.append(total);
 		builder.append(", win=");
 		builder.append(win);
 		builder.append(", lose=");
 		builder.append(lose);
-		builder.append(", disconnect=");
-		builder.append(disconnect);
 		builder.append(", gameNo=");
 		builder.append(gameNo);
-		builder.append(", point=");
-		builder.append(point);
 		builder.append(", nickName=");
 		builder.append(nickName);
 		builder.append("]");
