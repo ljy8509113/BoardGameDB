@@ -1,8 +1,6 @@
 package com.database.model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
 
 //사용자
 public class User implements Serializable {
@@ -10,6 +8,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String email;		//가입 이메일(id)
 	private String nickname;	//보여질 닉네임
+	private boolean isAutoId;
 	
 	public User() {		
 	}
@@ -35,6 +34,14 @@ public class User implements Serializable {
 		this.nickname = nickname;
 	}
 
+	public boolean getIsAutoId() {
+		return isAutoId;
+	}
+
+	public void setIsAutoId(boolean isAutoId) {
+		this.isAutoId = isAutoId;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -42,6 +49,8 @@ public class User implements Serializable {
 		builder.append(email);
 		builder.append(", nickname=");
 		builder.append(nickname);
+		builder.append(", isAutoId=");
+		builder.append(isAutoId);
 		builder.append("]");
 		return builder.toString();
 	}

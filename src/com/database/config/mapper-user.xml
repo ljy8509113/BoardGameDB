@@ -34,7 +34,7 @@
   	</select>
   	
   	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="email">
-  		INSERT INTO user (email, nickname) VALUES (#{email}, #{nickname}, CURDATE())
+  		INSERT INTO user (email, nickname, is_auto_id) VALUES (#{email}, #{nickName}, #{isAutoId})
   	</insert>
   	
   	<update id="update-fail-count" parameterType="java.util.HashMap">
