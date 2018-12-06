@@ -5,8 +5,6 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -15,7 +13,6 @@ import javax.crypto.NoSuchPaddingException;
 import com.database.common.ResCode;
 import com.database.model.User;
 import com.database.util.CustomException;
-import com.security.Security;
 
 public class UserDao extends BaseDao{
 	
@@ -60,5 +57,16 @@ public class UserDao extends BaseDao{
 		}else {
 			return user;			
 		}			
+	}
+	
+	public int updatePoint(String email, int addPoint) throws ClassNotFoundException, SQLException, CustomException {
+		User user = session.selectOne(MAPPER_NS + ".select-user", email);
+		if(user == null) {
+			throw new CustomException(ResCode.ERROR_EMAIL_NOT_FOUND.getResCode(), ResCode.ERROR_EMAIL_NOT_FOUND.getMessage());			
+		}else {
+			user.updatePoint(addPoint);
+			session.update(MAPPER_NS + ".update-point", user);
+			return user.getPoint();
+		}
 	}
 }

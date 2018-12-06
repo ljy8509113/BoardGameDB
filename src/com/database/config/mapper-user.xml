@@ -34,11 +34,11 @@
   	</select>
   	
   	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="email">
-  		INSERT INTO user (email, nickname, is_auto_id) VALUES (#{email}, #{nickName}, #{isAutoId})
+  		INSERT INTO user (email, nickname, is_auto_id, point) VALUES (#{email}, #{nickName}, #{isAutoId}, #{point})
   	</insert>
   	
-  	<update id="update-fail-count" parameterType="java.util.HashMap">
-  		UPDATE user SET fail_count = #{count} WHERE email = #{email} 
+  	<update id="update-point" parameterType="java.util.HashMap">
+  		UPDATE user SET point = #{point} WHERE email = #{email} 
   	</update>
   	
   	<select id="count-users" resultType="int">

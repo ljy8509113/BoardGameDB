@@ -9,6 +9,7 @@ public class User implements Serializable {
 	private String email;		//가입 이메일(id)
 	private String nickname;	//보여질 닉네임
 	private boolean isAutoId;
+	private int point;
 	
 	public User() {		
 	}
@@ -42,17 +43,22 @@ public class User implements Serializable {
 		this.isAutoId = isAutoId;
 	}
 	
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [email=");
-		builder.append(email);
-		builder.append(", nickname=");
-		builder.append(nickname);
-		builder.append(", isAutoId=");
-		builder.append(isAutoId);
-		builder.append("]");
-		return builder.toString();
+		return "User [email=" + email + ", nickname=" + nickname + ", isAutoId=" + isAutoId + ", point=" + point + "]";
 	}
+
+	public void updatePoint(int addPoint) {
+		point += addPoint;
+	}
+
 	
 }
