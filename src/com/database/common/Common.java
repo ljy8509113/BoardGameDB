@@ -28,6 +28,7 @@ public class Common {
 	public static final int CODE_ERROR_NOT_FOUND_ROOM			= 303;
 	public static final int CODE_ERROR_DISCONNECT_USER			= 304;
 	public static final int CODE_ERROR_NOT_READY						= 305;
+	public static final int CODE_ERROR_NOT_ENOUGH				= 306;
 	
 	//다빈치코드
 	public static final int CODE_ERROR_NUMBER_NOT_SELECT		= 401;

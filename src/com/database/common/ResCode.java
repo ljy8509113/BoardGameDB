@@ -28,6 +28,7 @@ public enum ResCode {
 	ERROR_ROOM_PASSWORD(Common.CODE_ERROR_ROOM_PASSWORD_FAIL),
 	ERROR_DISCONNECT_USER(Common.CODE_ERROR_DISCONNECT_USER),
 	ERROR_NOT_READY(Common.CODE_ERROR_NOT_READY),
+	ERROR_NOT_ENOUGH(Common.CODE_ERROR_NOT_ENOUGH),
 	//다빈치코드
 	ERROR_NUMBER_NOT_SELECT(Common.CODE_ERROR_NUMBER_NOT_SELECT);
 	
@@ -89,6 +90,9 @@ public enum ResCode {
 			break;
 		case Common.CODE_ERROR_NOT_READY:
 			message = "준비되지 않은 유저가 존재합니다.";
+			break;
+		case Common.CODE_ERROR_NOT_ENOUGH :
+			message = "인원이 충분하지 않습니다.";
 			break;
 		}
 	}
