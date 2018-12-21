@@ -30,16 +30,12 @@
   	</select>
   	
   	<select id="select-nickName" parameterType="String" resultType="int">
-  		SELECT COUNT(*) FROM user where nickname = #{nickName}
+  		SELECT COUNT(*) FROM user where nickname = #{nickname}
   	</select>
   	
   	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="email">
-  		INSERT INTO user (email, nickname, is_auto_id, point) VALUES (#{email}, #{nickName}, #{isAutoId}, #{point})
+  		INSERT INTO user (email, nickname, is_auto_id, point, last_connect_date, password) VALUES (#{email}, #{nickname}, #{isAutoId}, #{point}, CURRENT_TIMESTAMP, #{password})
   	</insert>
-  	
-  	<update id="update-point" parameterType="java.util.HashMap">
-  		UPDATE user SET point = #{point} WHERE email = #{email} 
-  	</update>
   	
   	<select id="count-users" resultType="int">
   		SELECT COUNT(*) FROM user
@@ -52,6 +48,22 @@
   	<select id="select-last-insert-id" resultType="int">
   		SELECT LAST_INSERT_ID()
   	</select>
+  	
+  	<select id="select-auto-user" parameterType="String" resultType="int">
+  		SELECT COUNT(*) FROM user WHERE email LIKE #{email}
+  	</select>
+  	
+  	<update id="update-point" parameterType="java.util.HashMap">
+  		UPDATE user SET point = #{point} WHERE email = #{email} 
+  	</update>
+  	
+  	<update id="update-fail-count" parameterType="java.util.HashMap">
+  		UPDATE user SET fail_count = #{count} WHERE email = #{email}
+  	</update>
+  	
+  	<update id="update-success-login" parameterType="java.util.HashMap">
+  		UPDATE user SET fail_count = #{count}, last_connect_date = CURRENT_TIMESTAMP WHERE email = #{email}
+  	</update>
   	
   </mapper>
   

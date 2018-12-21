@@ -11,16 +11,8 @@ public enum ResCode {
 	ERROR_PASSWORD_MISS(Common.CODE_ERROR_PASSWORD_MISS),
 	ERROR_PASSWORD_FAIL_FULL(Common.CODE_ERROR_PASSWORD_FAIL_FULL),
 	ERROR_NICKNAME_OVERLAP(Common.CODE_ERROR_NICKNAME_OVERLAP),
-
-	//---여정--------------------------------------//
-
-
-
-	//---성은--------------------------------------//
-
-
-
-	//---정욱--------------------------------------//
+	ERROR_NOT_USE_EMAIL(Common.CODE_ERROR_NOT_USE_EMAIL),
+	
 	ERROR_USER_SCORE_NOT_FOUND(Common.CODE_ERROR_USER_SCORE_NOT_FOUND),
 	ERROR_SCORE_NOT_FOUND(Common.CODE_ERROR_SCORE_NOT_FOUND),
 	ERROR_NOT_FOUND_ROOM(Common.CODE_ERROR_NOT_FOUND_ROOM),
@@ -69,6 +61,9 @@ public enum ResCode {
 			break;
 		case Common.CODE_ERROR_OTHER_ACCEPT :
 			message = "다른 단말기에서 접속되었습니다.";
+			break;
+		case Common.CODE_ERROR_NOT_USE_EMAIL :
+			message = "사용할 수 없는 이메일입니다.";
 			break;
 		case Common.CODE_ERROR_USER_SCORE_NOT_FOUND :
 			message = "유저 스코어가 존재하지 않습니다.";
