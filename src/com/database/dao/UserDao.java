@@ -13,6 +13,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
 
 import com.database.common.Common;
 import com.database.common.ResCode;
@@ -71,15 +72,12 @@ public class UserDao extends BaseDao{
 			String basePw = user.getPassword().trim().replace("\n", "");
 			basePw.replace("\r", "");
 			byte[] decodedBytes = Base64.decodeBase64(basePw);
-			String pw = new String(decodedBytes);
+			String pw = StringUtils.newStringUtf8(decodedBytes);
 			String dec = Security.Instance().decrypt(pw, true);
 			if(password.equals(dec)) {
 				map.put("count", "0");
 				map.put("email", user.getEmail());
 				session.update(MAPPER_NS + ".update-success-login", map);
-				
-//				String pw = Security.Instance().decrypt(user.getPassword(), true);
-//				user.setPassword(Security.Instance().encrypt(pw, false));
 				user.setPassword("");
 				return user;
 			}else {
