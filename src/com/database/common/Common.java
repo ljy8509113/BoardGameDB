@@ -1,6 +1,7 @@
 package com.database.common;
 
 public class Common {
+	public static final int NO_DATA								= -1;
 	public static final int DIVINCHICODE_GAME_CODE 				= 1;
 	
 	public static final int CODE_SUCCESS 						= 0;

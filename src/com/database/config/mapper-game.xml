@@ -30,6 +30,10 @@
   		SELECT * FROM game
   	</select>
   	
+  	<select id="select-all-on-game" resultType="Game">
+  		SELECT * FROM game WHERE state = 1
+  	</select>
+  	
   	<insert id="insert-game" parameterType="Game">
   		insert into game (title, description, cover_image, state) 
   		values (#{title}, #{description}, #{coverImage}, #{state})

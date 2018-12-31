@@ -42,6 +42,20 @@ public class GameDao extends BaseDao {
 		return list;
 	}
 	
+	public List<Game> selectOnAll() throws CustomException{
+		List<Game> list = null;
+		try {
+			list = session.selectList(MAPPER_NS + ".select-all-on-game");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			/*throw new BoardException(e.getMessage());*/
+			throw new CustomException(ResCode.ERROR_DB.getResCode(), ResCode.ERROR_DB.getMessage());
+		}
+		
+		return list;
+		
+	}
+	
 	public void insert(Game game) throws CustomException {
 		try {
 			session.insert(MAPPER_NS + ".insert-game", game);
