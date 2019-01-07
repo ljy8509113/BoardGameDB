@@ -68,24 +68,39 @@ public class UserDao extends BaseDao{
 			throw new CustomException(ResCode.ERROR_PASSWORD_FAIL_FULL.getResCode(), ResCode.ERROR_PASSWORD_FAIL_FULL.getMessage());
 		}else {
 			
+//			Map<String, String> map = new HashMap<String, String>();
+//			String basePw = user.getPassword().trim().replace("\n", "");
+//			basePw.replace("\r", "");
+//			byte[] decodedBytes = Base64.decodeBase64(basePw);
+//			String pw = StringUtils.newStringUtf8(decodedBytes);
+//			String dec = Security.Instance().decrypt(pw, true);
+//			if(password.equals(dec)) {
+//				map.put("count", "0");
+//				map.put("email", user.getEmail());
+//				session.update(MAPPER_NS + ".update-success-login", map);
+//				user.setPassword("");
+//				return user;
+//			}else {
+//				map.put("count", user.getFailCount()+1+"");
+//				map.put("email", user.getEmail());
+//				session.update(MAPPER_NS + ".update-fail-count", map);
+//				throw new CustomException(ResCode.ERROR_PASSWORD_MISS.getResCode(), ResCode.ERROR_PASSWORD_MISS.getMessage());
+//			}
+			
 			Map<String, String> map = new HashMap<String, String>();
-			String basePw = user.getPassword().trim().replace("\n", "");
-			basePw.replace("\r", "");
-			byte[] decodedBytes = Base64.decodeBase64(basePw);
-			String pw = StringUtils.newStringUtf8(decodedBytes);
-			String dec = Security.Instance().decrypt(pw, true);
+			String dec = Security.Instance().decrypt(user.getPassword(), true);
 			if(password.equals(dec)) {
 				map.put("count", "0");
 				map.put("email", user.getEmail());
 				session.update(MAPPER_NS + ".update-success-login", map);
-				user.setPassword("");
+//				user.setPassword("");
 				return user;
 			}else {
 				map.put("count", user.getFailCount()+1+"");
 				map.put("email", user.getEmail());
 				session.update(MAPPER_NS + ".update-fail-count", map);
 				throw new CustomException(ResCode.ERROR_PASSWORD_MISS.getResCode(), ResCode.ERROR_PASSWORD_MISS.getMessage());
-			}			
+			}
 		}			
 	}
 	
