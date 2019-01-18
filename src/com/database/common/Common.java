@@ -27,6 +27,7 @@ public class Common {
 	
 	//다빈치코드
 	public static final int CODE_ERROR_NUMBER_NOT_SELECT		= 401;
+	public static final int CODE_ERROR_ADD_COMPUTER				= 402;
 	
 	public static final String AUTO_ID							= "auto_id_imsi_";
 }
