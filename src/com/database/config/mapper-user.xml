@@ -34,7 +34,7 @@
   	</select>
   	
   	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="email">
-  		INSERT INTO user (email, nickname, is_auto_id, point, last_connect_date, password) VALUES (#{email}, #{nickname}, #{isAutoId}, #{point}, CURRENT_TIMESTAMP, #{password})
+  		INSERT INTO user (email, nickname, last_connect_date, password) VALUES (#{email}, #{nickname}, CURRENT_TIMESTAMP, #{password})
   	</insert>
   	
   	<select id="count-users" resultType="int">

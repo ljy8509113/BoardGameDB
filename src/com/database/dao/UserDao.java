@@ -104,16 +104,16 @@ public class UserDao extends BaseDao{
 		}			
 	}
 	
-	public int updatePoint(String email, int addPoint) throws ClassNotFoundException, SQLException, CustomException {
-		User user = session.selectOne(MAPPER_NS + ".select-user", email);
-		if(user == null) {
-			throw new CustomException(ResCode.ERROR_EMAIL_NOT_FOUND.getResCode(), ResCode.ERROR_EMAIL_NOT_FOUND.getMessage());			
-		}else {
-			user.updatePoint(addPoint);
-			session.update(MAPPER_NS + ".update-point", user);
-			return user.getPoint();
-		}
-	}
+//	public int updatePoint(String email, int addPoint) throws ClassNotFoundException, SQLException, CustomException {
+//		User user = session.selectOne(MAPPER_NS + ".select-user", email);
+//		if(user == null) {
+//			throw new CustomException(ResCode.ERROR_EMAIL_NOT_FOUND.getResCode(), ResCode.ERROR_EMAIL_NOT_FOUND.getMessage());			
+//		}else {
+//			user.updatePoint(addPoint);
+//			session.update(MAPPER_NS + ".update-point", user);
+//			return user.getPoint();
+//		}
+//	}
 	
 	public int getAutoIdCount() {
 		String email = Common.AUTO_ID + "%";

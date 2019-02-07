@@ -10,7 +10,6 @@ public class User implements Serializable {
 	private String email;		//가입 이메일(id)
 	private String nickname;	//보여질 닉네임
 	public boolean isAutoId;
-	private int point;
 	private String password;
 	private int failCount;
 	public Date date;
@@ -57,23 +56,11 @@ public class User implements Serializable {
 		this.isAutoId = isAutoId;
 	}
 	
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
-
 	@Override
 	public String toString() {
-		return "User [email=" + email + ", nickname=" + nickname + ", isAutoId=" + isAutoId + ", point=" + point + "]";
+		return "User [email=" + email + ", nickname=" + nickname + ", isAutoId=" + isAutoId + "]";
 	}
-
-	public void updatePoint(int addPoint) {
-		point += addPoint;
-	}
-
+	
 	public int getFailCount() {
 		return failCount;
 	}

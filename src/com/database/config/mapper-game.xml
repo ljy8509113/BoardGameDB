@@ -31,7 +31,7 @@
   	</select>
   	
   	<select id="select-all-on-game" resultType="Game">
-  		SELECT * FROM game WHERE state = 1
+  		SELECT * FROM game WHERE state = 'D' or 'O'
   	</select>
   	
   	<insert id="insert-game" parameterType="Game">
